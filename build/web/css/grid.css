@@ -1,0 +1,69 @@
+/*  https://codepen.io/team/css-tricks/pen/EKEYob 
+    https://stackoverflow.com/questions/7273338/how-to-vertically-align-an-image-inside-a-div
+*/
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-evenly;
+    	
+}
+
+.flex-item {
+    background: rgb(255,255,255);
+    position: relative;
+    width: 150px;
+    height: 200px;
+    margin-top: 10px;
+    z-index: 999;
+}
+
+.info {
+    width: 150px;
+    height: 100px;
+    background: rgba(0,0,0,0.8);
+    position: absolute;
+    bottom: 0px; 
+    z-index: 1;
+    display: none;
+    text-align: center;
+}
+
+.flex-item > img {
+    max-height: 90%;  
+    max-width: 90%; 
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+}
+
+.info > h3 {
+    color: #68D0FE;
+    font-weight: bold;
+}
+
+.breaker {
+  display:block;
+  width:100%;
+  height:0;
+ }
+ 
+ ul > p.breaker:nth-child(1) {
+     display: none;
+ }
+ 
+ .info a {
+     text-decoration: none;
+ }
