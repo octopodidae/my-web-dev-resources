@@ -12,7 +12,7 @@
     <s:iterator status="status" value="resourceList">
 
         <a href="<s:property value='getUrl()'/>" target="_blank">
-            <li class="flex-item" data-language ="<s:property value='getLanguage()'/>" >
+            <li class="flex-item" data-language ="<s:property value='getLanguage()'/>" data-popular="<s:property value='isPopular()'/>" >
 
                 <img  src="<s:property value='getImage_path()'/>" alt="image" data-toggle="tooltip" data-html="true" 
                       title="<p style='color: #68D0FE; font-size: 1.5em';><s:property value='getTitle()'/></p>

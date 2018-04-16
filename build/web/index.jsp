@@ -33,50 +33,43 @@
 //            };
 
             $('[data-toggle="tooltip"]').tooltip({
-                delay: { "show": 500, "hide": 100 },
-                
+                delay: {"show": 500, "hide": 100},
             });
-
             $(".nav a").on("click", function () {
                 $(".nav").find(".active").removeClass("active");
                 $(this).parent().addClass("active");
             });
+            let checkboxPopular = $("#check1");
+            
             $("#html_css").click(function (event) {
                 event.preventDefault();
+                checkboxPopular.prop('checked',false);
                 $(".flex-item").show();
                 $(".flex-item").not(".flex-item[data-language='CSS']").hide();
             });
             $("#javascript").click(function (event) {
                 event.preventDefault();
+                checkboxPopular.prop('checked',false);
                 $(".flex-item").show();
                 $(".flex-item").not(".flex-item[data-language='JavaScript']").hide();
             });
             $("#jee").click(function (event) {
                 event.preventDefault();
+                checkboxPopular.prop('checked',false);
                 $(".flex-item").show();
                 $(".flex-item").not(".flex-item[data-language='JEE']").hide();
             });
-//            $(".flex-item").each(function () {
-//                $(this).hover(function () {
-//                    $(this).children("div.info").slideToggle("fast");
-//                    ;
-//                });
-//
-//            });
 
-//            var info = $(".info").html();
-            //console.log(info);
-
-//            $(".show-tooltip").tooltip({
-//                show: {
-//                    effect: "slideDown",
-//                    delay: 250
-//                }
-//            });
-//
-//            $(".show-tooltip").attr('title', info);
-
-        });
+            checkboxPopular.click(function(){
+                if ($(this).is(':checked')) {
+                    $(".flex-item[data-popular='false']").hide();
+                } else {
+                    $(".flex-item").show(); 
+                }
+            });
+            
+        })
+                
 
     </script>
 
