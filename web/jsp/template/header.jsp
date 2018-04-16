@@ -17,8 +17,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" style="max-height: none;">
                 <ul class="nav navbar-nav">
-                    <li id="home" class="active"><a href='http://localhost:8080/mywebdevresources/'>ALL</a></li>
-                    <li id="html_css"><a href="#">HTML/CSS</a></li>
+                    <li id="all" class="active"><a href='http://localhost:8080/mywebdevresources/'>ALL</a></li>
+                    <li id="html_css"><a href="#">CSS</a></li>
                     <li id="javascript"><a href="#">JAVASCRIPT</a></li>
                     <li id="jee"><a href="#">JEE</a></li>
                     <li>

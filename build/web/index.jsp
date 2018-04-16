@@ -24,14 +24,6 @@
 
         $(function () {
 
-//            jQuery.fn.visible = function () {
-//                return this.css('visibility', 'visible');
-//            };
-//
-//            jQuery.fn.invisible = function () {
-//                return this.css('visibility', 'hidden');
-//            };
-
             $('[data-toggle="tooltip"]').tooltip({
                 delay: {"show": 500, "hide": 100},
             });
@@ -39,35 +31,50 @@
                 $(".nav").find(".active").removeClass("active");
                 $(this).parent().addClass("active");
             });
+            
             let checkboxPopular = $("#check1");
             
             $("#html_css").click(function (event) {
                 event.preventDefault();
                 checkboxPopular.prop('checked',false);
-                $(".flex-item").show();
-                $(".flex-item").not(".flex-item[data-language='CSS']").hide();
+                $(".flex-item").hide();
+                $(".flex-item[data-language='CSS']").show();
             });
+            
             $("#javascript").click(function (event) {
                 event.preventDefault();
                 checkboxPopular.prop('checked',false);
-                $(".flex-item").show();
-                $(".flex-item").not(".flex-item[data-language='JavaScript']").hide();
-            });
-            $("#jee").click(function (event) {
-                event.preventDefault();
-                checkboxPopular.prop('checked',false);
-                $(".flex-item").show();
-                $(".flex-item").not(".flex-item[data-language='JEE']").hide();
-            });
-
-            checkboxPopular.click(function(){
-                if ($(this).is(':checked')) {
-                    $(".flex-item[data-popular='false']").hide();
-                } else {
-                    $(".flex-item").show(); 
-                }
+                $(".flex-item").hide();
+                $(".flex-item[data-language='JAVASCRIPT']").show();
             });
             
+            $("#jee").click(function (event) {
+                checkboxPopular.prop('checked',false);
+                $(".flex-item").hide();
+                $(".flex-item[data-language='JEE']").show();
+            });
+            
+           
+            checkboxPopular.click(function(){
+                
+                if ($(this).is(':checked')) {
+                    
+                    $(".flex-item[data-popular='false']").fadeOut();
+                
+                } else {
+                    
+                    let l = $("li.active").text();
+                    
+                    if(l == "ALL") {
+                        $(".flex-item").fadeIn(); 
+                    }
+                    
+                    l = "[data-language='" + l +"']";
+                    $(".flex-item"+l).fadeIn(); 
+                
+                }
+            });
+                        
         })
                 
 
