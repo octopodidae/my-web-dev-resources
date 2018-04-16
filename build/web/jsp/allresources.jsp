@@ -7,28 +7,24 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "s" uri = "/struts-tags" %>
 
-<ul class="flex-container">
+<s:if test="%{resourceList.size()>0}">
 
-    <s:if test="%{resourceList.size()>0}">
+    <s:iterator status="status" value="resourceList">
 
-        <s:iterator status="status" value="resourceList">
-            
-            <s:if test="(#status.index %  8) == 0 ">
-                <p class=breaker></p>
-            </s:if>
-            
-            <li class="flex-item" data-language ="<s:property value='getLanguage()'/>">
-                <div class="info">
-                    <a href="<s:property value='getUrl()'/> " target="blank"><h3><s:property value='getTitle()'/></h3></a>
-                </div>
-                <img src="<s:property value='getImage_path()'/>" alt="image">
-               
+        <a href="<s:property value='getUrl()'/>" target="_blank">
+            <li class="flex-item" data-language ="<s:property value='getLanguage()'/>" >
+
+                <img  src="<s:property value='getImage_path()'/>" alt="image" data-toggle="tooltip" data-html="true" 
+                      title="<p style='color: #68D0FE; font-size: 1.5em';><s:property value='getTitle()'/></p>
+                      <p style='color: #68D0FE; font-style: italic;'>(id : <s:property value='getResource_id()'/>)</p>
+                      <p style='color: #68D0FE; font-style: italic;'><s:property value='getDescription()'/></p>"
+                      data-placement="auto" data-animation="true">
+
             </li>
-            
-        </s:iterator>
+        </a>
+
+    </s:iterator>
 
 
-    </s:if>
-
-</ul>
+</s:if>
 

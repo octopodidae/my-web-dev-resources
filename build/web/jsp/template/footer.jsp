@@ -5,7 +5,7 @@
 --%>
 
 <!--Footer-->
-<footer class="footer-distributed footer">
+<footer class="footer-distributed footer navbar-fixed-bottom"> <!---->
 
     <div class="footer-left">
         <p class="footer-company-name">By dev for dev</p>        

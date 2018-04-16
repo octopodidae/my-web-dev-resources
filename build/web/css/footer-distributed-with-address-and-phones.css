@@ -15,7 +15,8 @@ and open the template in the editor.
     box-sizing: border-box;
     width: 100%;
     text-align: left;
-    font: bold 14px sans-serif;
+    font-size: 14px;
+    font-weight: bold;
     padding: 25px 20px;
     margin-top: 80px;
 }
