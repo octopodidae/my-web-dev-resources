@@ -1,13 +1,14 @@
 <%-- 
-    Document   : home.jsp
-    Created on : 12 avril 2017
+    Document   : DisplayResourceAdded
+    Created on : 17 avr. 2018, 17:34:36
     Author     : blaurancin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
+
 <!DOCTYPE html>
-<html style="height: 130%;">
+<html>
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,13 +22,11 @@
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
-<!--        <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>-->
+        <!--        <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>-->
 
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
-        
-        <link href="css/footer-distributed-with-address-and-phones.css" rel="stylesheet" type="text/css"/>
 
-        <link href="css/grid.css" rel="stylesheet" type="text/css"/>
+        <link href="css/footer-distributed-with-address-and-phones.css" rel="stylesheet" type="text/css"/>
 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -35,8 +34,37 @@
         <!-- Boostrap : Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+        <style>
+            
+            center{
+                 margin-top: 200px;
+            }
+            
+        </style>
+
     </head>
 
-    <s:action name="goToIndexHtml" executeResult="true"/>
+    <body style="background: radial-gradient(circle farthest-corner at 200px 0, #414141, #000) no-repeat center center fixed;">
 
-</html>
+        <s:include value="/jsp/template/header-admin.jsp" />
+
+    <center style="color: #68D0FE;">
+        
+        <p>
+        <h4>Resource information:</h4>
+        Successfully added!
+        </p>
+
+    </center>
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+</body>

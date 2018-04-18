@@ -17,17 +17,24 @@ public class Resource {
     private String url;
     private String image_path;
     private boolean popular;
-    private String support;
     private String language;
 
-    public Resource(int resource_id, String title, String description, String url, String image_path, boolean popular, String support, String language) {
+    public Resource(String title, String description, String url, String image_path, boolean popular, String language) {
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.image_path = image_path;
+        this.popular = popular;
+        this.language = language;
+    }
+    
+    public Resource(int resource_id, String title, String description, String url, String image_path, boolean popular, String language) {
         this.resource_id = resource_id;
         this.title = title;
         this.description = description;
         this.url = url;
         this.image_path = image_path;
         this.popular = popular;
-        this.support = support;
         this.language = language;
     }
     
@@ -79,14 +86,6 @@ public class Resource {
 
     public void setPopular(boolean popular) {
         this.popular = popular;
-    }
-
-    public String getSupport() {
-        return support;
-    }
-
-    public void setSupport(String support) {
-        this.support = support;
     }
 
     public String getLanguage() {

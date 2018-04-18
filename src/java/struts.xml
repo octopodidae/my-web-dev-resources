@@ -14,6 +14,14 @@
             <result name="success">jsp/allresources.jsp</result>
         </action>
         
+        <action name="crud">
+            <result name="success">jsp/administrator/crud.jsp</result>
+        </action>
+        
+        <action name="addResource" class="com.mywebdevresources.actions.ResourceAction" method="register">
+            <result name="success">jsp/administrator/DisplayResourceAdded.jsp</result>
+        </action>
+        
         
     </package>
 </struts>

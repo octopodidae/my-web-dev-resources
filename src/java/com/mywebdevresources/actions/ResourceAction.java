@@ -24,15 +24,27 @@ public class ResourceAction extends ActionSupport {
 
     public List<Resource> resourceList = null;
 
-    ResourceDAO resourceDAO;
+    //ResourceDAO resourceDAO;
+    
+    private Resource resource;
+    private ResourceDAO resourceDAO;
 
-    public List<Resource> getResourceList() {
-        return resourceList;
-    }
-
-    public void setResourceList(List<Resource> resourceList) {
-        this.resourceList = resourceList;
-    }
+//    public List<Resource> getResourceList() {
+//        return resourceList;
+//    }
+//
+//    public void setResourceList(List<Resource> resourceList) {
+//        this.resourceList = resourceList;
+//    }
+    
+//    public Resource getResource() {
+//        return resource;
+//    }
+//
+//    public void setResource(Resource resource) {
+//        this.resource = resource;
+//    }
+    
 
     /*public String execute() throws Exception {
         try {
@@ -59,10 +71,45 @@ public class ResourceAction extends ActionSupport {
 
     public String displayAllResources() throws Exception {
 
-        resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
+        ResourceDAO resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
         resourceList = resourceDAO.findAll();
 
         return SUCCESS;
+    }
+
+ 
+    public String register() throws Exception {   
+        
+        HttpServletRequest req = ServletActionContext.getRequest();
+        String title = (String) req.getParameter("title");
+        String desc = (String)req.getParameter("desc");
+        String url = (String) req.getParameter("url");
+        String img = (String)req.getParameter("img");
+        String popularString = (String)req.getParameter("popular");
+        Boolean popular;
+        if (popularString.equals("on")){
+            popular = true;
+        } else {
+            popular = false;
+        }
+        String language = (String)req.getParameter("language");
+
+        
+        this.resource =  new Resource(title, desc, url, img, popular, language);
+             
+        this.resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
+        resourceDAO.create(resource);
+         
+        if(resource.getTitle()!= null && resource.getImage_path()!= null &&  resource.getUrl()!= null){
+            return SUCCESS;
+        }else{
+            addActionError("Invalid Resource information. Resource can't be added "
+                    + "Please try again!");
+            return ERROR;
+         }
+
+            //return SUCCESS;
+
     }
 
 }

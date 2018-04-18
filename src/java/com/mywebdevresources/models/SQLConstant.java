@@ -21,7 +21,7 @@ public class SQLConstant {
     protected static final String SELECT_ALL_RESOURCES_BY_LANGUAGE = "SELECT * FROM resource where language=?";
     
     protected static final String INSERT_RESOURCE = "INSERT INTO resource("
-                + "resource_id, title, description, url, image_path, popular, support, language) VALUES (DEFAULT,?,?,?,?,?,?,?)";
+                + "resource_id, title, description, url, image_path, popular, language) VALUES (DEFAULT,?,?,?,?,?,?)";
        
         
     protected static final String UPDATE_RESOURCE = "UPDATE resource SET "

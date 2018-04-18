@@ -19,28 +19,23 @@
                 <span class="navbar-brand" style="color:#68D0FE">My Web Dev Resources</span>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" style="max-height: none;">
-                <ul class="nav navbar-nav">
-                    <li id="all" class="active"><a href=http://localhost:8080/mywebdevresources>ALL</a></li>
-                    <li id="html_css"><a href="#">CSS</a></li>
-                    <li id="javascript"><a href="#">JAVASCRIPT</a></li>
-                    <li id="jee"><a href="#">JEE</a></li>
-                    <li>
-                        <div  style="padding-top: 15px;">
-                            <input type="checkbox" id="check1">
-                            <label for="check1">
-                                <div><i class="fa fa-check"></i></div> Display only popular resources
-                            </label>
-                        </div>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left" action="#" style="margin-left: 50px;">
+                <!--<ul class="nav navbar-nav nav-tabs">
+                    <li><a href="http://localhost:8080/mywebdevresources">HOME</a></li>
+                    <li><a href="#">ADD RESOURCE</a></li>
+                    <li><a href="#">UPDATE RESOURCE</a></li>
+                    <li><a href="#">DELETE RESOURCE</a></li>
+                    
+                </ul>-->
+               
+
+<!--                <form class="navbar-form navbar-left" action="#" style="margin-left: 50px;">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-outline-success" style="color: #68D0FE; background-color: transparent; background-image: none; border-color: #68D0FE;" onMouseOver="this.style.backgroundColor = '#68D0FE'; this.style.color = '#fff'" onMouseOut="this.style.backgroundColor = 'transparent'; this.style.color = '#68D0FE'">Search</button>
-                </form>
+                </form>-->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href='<s:url action="crud.action" />'><span class="glyphicon glyphicon glyphicon-user"></span>&nbspLogin as administrator</a></li>
+                    <li><a href="http://localhost:8080/mywebdevresources"><span class="glyphicon glyphicon glyphicon-log-out"></span></a></li>
                 </ul>
             </div>
         </div>

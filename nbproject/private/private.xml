@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/css/grid.css</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/jsp/template/header-admin.jsp</file>
             <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/jsp/allresources.jsp</file>
-            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/jsp/template/footer.jsp</file>
-            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/jsp/administrator/crud.jsp</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/src/java/com/mywebdevresources/javabeans/Resource.java</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/css/footer-distributed-with-address-and-phones.css</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/jsp/administrator/DisplayResourceAdded.jsp</file>
             <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/home.jsp</file>
             <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/src/java/struts.xml</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/src/java/com/mywebdevresources/models/ResourceDAO.java</file>
             <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/index.jsp</file>
-            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/web/jsp/template/header.jsp</file>
+            <file>file:/C:/Users/blaurancin/Documents/javaee/mywebdevresources/src/java/com/mywebdevresources/actions/ResourceAction.java</file>
         </group>
     </open-files>
 </project-private>

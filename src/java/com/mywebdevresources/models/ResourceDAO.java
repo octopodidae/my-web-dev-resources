@@ -43,8 +43,7 @@ public class ResourceDAO extends CommonDAO<Resource> {
             statement.setString(3, resource.getUrl());
             statement.setString(4, resource.getImage_path());
             statement.setBoolean(5, resource.isPopular());
-            statement.setString(6, resource.getSupport());
-            statement.setString(7, resource.getLanguage());
+            statement.setString(6, resource.getLanguage());
 
             //Executing the preparedStatement
             statement.executeUpdate();
@@ -92,9 +91,8 @@ public class ResourceDAO extends CommonDAO<Resource> {
             statement.setString(3, resource.getUrl());
             statement.setString(4, resource.getImage_path());
             statement.setBoolean(5, resource.isPopular());
-            statement.setString(6, resource.getSupport());
-            statement.setString(7, resource.getLanguage());
-            statement.setInt(8, resource.getResource_id());
+            statement.setString(6, resource.getLanguage());
+            statement.setInt(7, resource.getResource_id());
 
             //Executing the preparedStatement
             statement.executeUpdate();
@@ -120,10 +118,10 @@ public class ResourceDAO extends CommonDAO<Resource> {
 
             if (result.first()) {
 
-                //on intialise les objets auteurs
+                //on intialise les objets resource
                 resource = new Resource(result.getInt("resource_id"), result.getString("title"), result.getString("description"), 
                                         result.getString("url"), result.getString("image_path"), result.getBoolean("popular"), 
-                                        result. getString("support"), result.getString("language"));
+                                        result.getString("language"));
 
                resourceList.add(resource);
 
@@ -131,7 +129,7 @@ public class ResourceDAO extends CommonDAO<Resource> {
                     //on intialise les objets auteurs
                     resource = new Resource(result.getInt("resource_id"), result.getString("title"), result.getString("description"), 
                                         result.getString("url"), result.getString("image_path"), result.getBoolean("popular"), 
-                                        result. getString("support"), result.getString("language"));
+                                        result.getString("language"));
 
                     resourceList.add(resource);
                 }
