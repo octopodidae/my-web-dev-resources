@@ -34,7 +34,17 @@ public class ResourceAction extends ActionSupport {
     private String language = null;
     
     private String img = null;
+    
+    private Boolean successAdd = false;
 
+    public Boolean getSuccessAdd() {
+        return successAdd;
+    }
+
+    public void setSuccessAdd(Boolean successAdd) {
+        this.successAdd = successAdd;
+    }
+    
     public String getImg() {
         return img;
     }
@@ -60,29 +70,6 @@ public class ResourceAction extends ActionSupport {
     }
     
 
-    /*public String execute() throws Exception {
-        try {
-
-            bookDAO = new BookDAO(ConnectionBDPostgreSQL.getInstance());
-            bookList = bookDAO.findAllBookOrderByAuthorASC();
-            Book mybook = new Book();
-
-            Iterator<Book> it = bookList.iterator();
-
-            while (it.hasNext()) {
-
-                mybook = (Book) it.next();
-                System.out.println(" Book " + mybook.getTitle().toString() + " "
-                        + mybook.getAuthor().get(0).getAuthor_firstname()
-                        + mybook.getCategory().getCategory_name());
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return SUCCESS;
-    }*/
-
     public String displayAllResources() throws Exception {
 
         ResourceDAO resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
@@ -99,10 +86,7 @@ public class ResourceAction extends ActionSupport {
         String desc = (String)req.getParameter("desc");
         String url = (String) req.getParameter("url");
         String img = (String)req.getParameter("img");
-//        String popularString = (String)req.getParameter("popular");
-//        boolean popular_ = false;
-//        if (popularString.equals("on"))
-//            popular_ = true;
+        img = "images/" + img;
         String language = (String)req.getParameter("language");
         boolean popular_ = req.getParameter( "popular" ) != null;
         
@@ -115,15 +99,14 @@ public class ResourceAction extends ActionSupport {
         this.setImg(img);
          
         if(resource.getTitle()!= null && resource.getImage_path()!= null &&  resource.getUrl()!= null){
+            this.setSuccessAdd(true);
             return SUCCESS;
         }else{
             addActionError("Invalid Resource information. Resource can't be added "
                     + "Please try again!");
+            this.setSuccessAdd(false);
             return ERROR;
          }
-
-            //return SUCCESS;
-
     }
 
 }

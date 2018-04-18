@@ -51,6 +51,28 @@
                 display: inline-block;
             }
 
+            .frame {  
+                height: 160px; /*can be anything*/
+                width: 160px; /*can be anything*/
+                position: relative;
+            }
+            .frame > img {  
+                max-height: 100%;  
+                max-width: 100%; 
+                width: auto;
+                height: auto;
+                position: absolute;  
+                top: 0;  
+                bottom: 0;  
+                left: 0;  
+                right: 0;  
+                margin: auto;
+            }
+
+            /*            .p-info {
+                            text-decoration: underline;
+                        }*/
+
         </style>
 
     </head>
@@ -90,7 +112,7 @@
                         </div>
                         <div class="form-group">
                             <label for="img">Image</label>
-                            <input type="text" class="form-control" name="img" id="img" placeholder="Image of the resource">
+                            <input type="text" class="form-control" name="img" id="img" placeholder="Image of the resource (image.png, logo.jpg, ...)">
                         </div>
                         <div class="form-group">
                             <label for="language">Language</label>
@@ -98,8 +120,8 @@
                                 <option>CSS</option>
                                 <option>JAVASCRIPT</option>
                                 <option>JEE</option>
-<!--                                <option>4</option>
-                                <option>5</option>-->
+                                <!--                                <option>4</option>
+                                                                <option>5</option>-->
                             </select>
                         </div>
                         <div class="form-check">
@@ -116,10 +138,57 @@
                 <div class="tab-pane fade" id="delete"><center><p style="color: #68D0FE; margin-top: 150px;">To Do : Create delete form</p></center></div>
             </div>
 
+            <!-- Modal -->
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align: center;">
+                            <h2 class="modal-title" id="exampleModalLongTitle">Resource information</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <center>
+                            <div class="modal-body">
+
+
+                                <p class="p-info">Title<span> : <s:property value="title"/></span></p>
+                                <p class="p-info">Language<span> : <s:property value="language"/></span></p>
+                                <div class="frame">
+                                    <img src="<s:property value='img'/>" alt="image">
+                                </div>
+
+                            </div>
+                        </center>
+                        <div class="modal-footer" style="text-align: center;">
+                            <!--                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                            <div class="alert alert-success" role="alert">
+                                <strong>Successfully added!</strong>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
 
         <script>
+
+            $(function () {
+
+            <s:if test='%{successAdd == true }'>
+
+                console.log("ready!");
+                $("#myModal").modal('show');
+
+            </s:if>
+
+
+            });
 
 
 
