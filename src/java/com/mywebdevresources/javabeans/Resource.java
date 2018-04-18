@@ -38,8 +38,6 @@ public class Resource {
         this.language = language;
     }
     
-    
-
     public int getResource_id() {
         return resource_id;
     }

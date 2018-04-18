@@ -28,22 +28,36 @@ public class ResourceAction extends ActionSupport {
     
     private Resource resource;
     private ResourceDAO resourceDAO;
-
-//    public List<Resource> getResourceList() {
-//        return resourceList;
-//    }
-//
-//    public void setResourceList(List<Resource> resourceList) {
-//        this.resourceList = resourceList;
-//    }
     
-//    public Resource getResource() {
-//        return resource;
-//    }
-//
-//    public void setResource(Resource resource) {
-//        this.resource = resource;
-//    }
+    private String title = null;
+
+    private String language = null;
+    
+    private String img = null;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
     
 
     /*public String execute() throws Exception {
@@ -85,20 +99,22 @@ public class ResourceAction extends ActionSupport {
         String desc = (String)req.getParameter("desc");
         String url = (String) req.getParameter("url");
         String img = (String)req.getParameter("img");
-        String popularString = (String)req.getParameter("popular");
-        Boolean popular;
-        if (popularString.equals("on")){
-            popular = true;
-        } else {
-            popular = false;
-        }
+   //     String popularString = (String)req.getParameter("popular");
+//        Boolean popular;
+//        if (popularString.equals("on")){
+//            popular = true;
+//        } else {
+//            popular = false;
+//        }
         String language = (String)req.getParameter("language");
-
         
-        this.resource =  new Resource(title, desc, url, img, popular, language);
+        this.resource =  new Resource(title, desc, url, img, false, language);
              
         this.resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
         resourceDAO.create(resource);
+        this.setTitle(title);
+        this.setLanguage(language);
+        this.setImg(img);
          
         if(resource.getTitle()!= null && resource.getImage_path()!= null &&  resource.getUrl()!= null){
             return SUCCESS;

@@ -35,11 +35,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <style>
-            
+
             center{
-                 margin-top: 200px;
+                margin-top: 200px;
             }
-            
+
         </style>
 
     </head>
@@ -49,13 +49,17 @@
         <s:include value="/jsp/template/header-admin.jsp" />
 
     <center style="color: #68D0FE;">
-        
+
         <p>
         <h4>Resource information:</h4>
+        <p>Title : <s:property value="title"/></p>
+        <img src="<s:property value='img'/>" alt="image">
+        <p>Language : <s:property value="language"/></p>
+        
         Successfully added!
-        </p>
+    </p>
 
-    </center>
+</center>
 
 <script>
 

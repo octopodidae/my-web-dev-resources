@@ -112,8 +112,8 @@
 
 
                 </div>
-                <div class="tab-pane fade" id="update"><p>To Do : Create update form </p></div>
-                <div class="tab-pane fade" id="delete"><p>To Do : Create delete form</p></div>
+                <div class="tab-pane fade" id="update"><center><p style="color: #68D0FE; margin-top: 150px;">To Do : Create update form </p></center></div>
+                <div class="tab-pane fade" id="delete"><center><p style="color: #68D0FE; margin-top: 150px;">To Do : Create delete form</p></center></div>
             </div>
 
         </div>
