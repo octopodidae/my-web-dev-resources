@@ -40,6 +40,24 @@
                 margin-top: 200px;
             }
 
+            .frame {  
+                height: 160px; /*can be anything*/
+                width: 160px; /*can be anything*/
+                position: relative;
+            }
+            .frame > img {  
+                max-height: 100%;  
+                max-width: 100%; 
+                width: auto;
+                height: auto;
+                position: absolute;  
+                top: 0;  
+                bottom: 0;  
+                left: 0;  
+                right: 0;  
+                margin: auto;
+            }
+
         </style>
 
     </head>
@@ -51,11 +69,13 @@
     <center style="color: #68D0FE;">
 
         <p>
-        <h4>Resource information:</h4>
+        <h4>Resource information</h4>
         <p>Title : <s:property value="title"/></p>
-        <img src="<s:property value='img'/>" alt="image">
+        <div class="frame">
+            <img src="<s:property value='img'/>" alt="image">
+        </div>
         <p>Language : <s:property value="language"/></p>
-        
+
         Successfully added!
     </p>
 

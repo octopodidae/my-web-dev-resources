@@ -21,8 +21,6 @@
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
-<!--        <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>-->
-
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         
         <link href="css/footer-distributed-with-address-and-phones.css" rel="stylesheet" type="text/css"/>

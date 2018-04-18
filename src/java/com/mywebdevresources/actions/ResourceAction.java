@@ -99,16 +99,14 @@ public class ResourceAction extends ActionSupport {
         String desc = (String)req.getParameter("desc");
         String url = (String) req.getParameter("url");
         String img = (String)req.getParameter("img");
-   //     String popularString = (String)req.getParameter("popular");
-//        Boolean popular;
-//        if (popularString.equals("on")){
-//            popular = true;
-//        } else {
-//            popular = false;
-//        }
+//        String popularString = (String)req.getParameter("popular");
+//        boolean popular_ = false;
+//        if (popularString.equals("on"))
+//            popular_ = true;
         String language = (String)req.getParameter("language");
+        boolean popular_ = req.getParameter( "popular" ) != null;
         
-        this.resource =  new Resource(title, desc, url, img, false, language);
+        this.resource =  new Resource(title, desc, url, img, popular_, language);
              
         this.resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
         resourceDAO.create(resource);
