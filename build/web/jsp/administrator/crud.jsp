@@ -69,9 +69,9 @@
                 margin: auto;
             }
 
-            /*            .p-info {
-                            text-decoration: underline;
-                        }*/
+            strong > ul {
+                list-style-type: none !important;
+            }
 
         </style>
 
@@ -100,7 +100,7 @@
                     <form action="addResource" method="post">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Title of the resource">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Title of the resource" required>
                         </div>
                         <div class="form-group">
                             <label for="desc">Description</label>
@@ -108,11 +108,11 @@
                         </div>
                         <div class="form-group">
                             <label for="url">Url</label>
-                            <input type="url" class="form-control" name="url" id="url" placeholder="Url of the resource">
+                            <input type="url" class="form-control" name="url" id="url" placeholder="Url of the resource" required>
                         </div>
                         <div class="form-group">
                             <label for="img">Image</label>
-                            <input type="text" class="form-control" name="img" id="img" placeholder="Image of the resource (image.png, logo.jpg, ...)">
+                            <input type="text" class="form-control" name="img" id="img" placeholder="Image of the resource (image.png, logo.jpg, ...)" required>
                         </div>
                         <div class="form-group">
                             <label for="language">Language</label>
@@ -137,8 +137,16 @@
                 <div class="tab-pane fade" id="update"><center><p style="color: #68D0FE; margin-top: 150px;">To Do : Create update form </p></center></div>
                 <div class="tab-pane fade" id="delete"><center><p style="color: #68D0FE; margin-top: 150px;">To Do : Create delete form</p></center></div>
             </div>
+            
+            <s:if test="hasActionErrors()">
 
-            <!-- Modal -->
+                <div class="errors">
+                     <s:actionerror/>
+                </div>
+
+            </s:if>
+
+            <!-- Modal Success -->
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -151,27 +159,45 @@
                         </div>
                         <center>
                             <div class="modal-body">
-
-
-                                <p class="p-info">Title<span> : <s:property value="title"/></span></p>
-                                <p class="p-info">Language<span> : <s:property value="language"/></span></p>
+                                <p>Title<span> : <s:property value="titleInfo"/></span></p>
+                                <p>Language<span> : <s:property value="languageInfo"/></span></p>
                                 <div class="frame">
-                                    <img src="<s:property value='img'/>" alt="image">
+                                    <img src="<s:property value='imgInfo'/>" alt="image">
                                 </div>
-
                             </div>
                         </center>
                         <div class="modal-footer" style="text-align: center;">
-                            <!--                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
                             <div class="alert alert-success" role="alert">
-                                <strong>Successfully added!</strong>
+                                <strong><s:actionmessage/></strong>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Modal Error -->
+
+            <div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align: center;">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <center>
+                            <div class="modal-body">
+                                
+                            <div class="alert alert-danger" role="alert">
+                                <strong><s:actionerror/></strong>
+                            </div>
+                                
+                            </div>
+                        </center>
+                        
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -180,18 +206,22 @@
 
             $(function () {
 
-            <s:if test='%{successAdd == true }'>
-
-                console.log("ready!");
+            <s:if test="hasActionMessages()">
+                console.log("SUCCESS!");
                 $("#myModal").modal('show');
-
             </s:if>
 
-
-            });
-
-
-
+           <s:if test="hasActionErrors()">
+             console.log("ERROR!");
+             $("#modalError").modal('show');
+           </s:if>
+           
+        
+        
+        });
+        
+        
+        
         </script>
 
 

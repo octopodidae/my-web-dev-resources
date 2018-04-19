@@ -23,52 +23,11 @@ import org.apache.struts2.ServletActionContext;
 public class ResourceAction extends ActionSupport {
 
     public List<Resource> resourceList = null;
-
-    //ResourceDAO resourceDAO;
-    
     private Resource resource;
     private ResourceDAO resourceDAO;
-    
-    private String title = null;
-
-    private String language = null;
-    
-    private String img = null;
-    
-    private Boolean successAdd = false;
-
-    public Boolean getSuccessAdd() {
-        return successAdd;
-    }
-
-    public void setSuccessAdd(Boolean successAdd) {
-        this.successAdd = successAdd;
-    }
-    
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-    
+    public String titleInfo = null;
+    public String languageInfo = null;
+    public String imgInfo = null;
 
     public String displayAllResources() throws Exception {
 
@@ -90,23 +49,30 @@ public class ResourceAction extends ActionSupport {
         String language = (String)req.getParameter("language");
         boolean popular_ = req.getParameter( "popular" ) != null;
         
-        this.resource =  new Resource(title, desc, url, img, popular_, language);
-             
-        this.resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
-        resourceDAO.create(resource);
-        this.setTitle(title);
-        this.setLanguage(language);
-        this.setImg(img);
+        imgInfo = img;
+        titleInfo = title;
+        languageInfo = language;
          
-        if(resource.getTitle()!= null && resource.getImage_path()!= null &&  resource.getUrl()!= null){
-            this.setSuccessAdd(true);
+        if( (!imgInfo.trim().isEmpty()) && (!titleInfo.trim().isEmpty()) &&(!languageInfo.trim().isEmpty()) ){
+            
+            this.resource =  new Resource(title, desc, url, img, popular_, language);
+            this.resourceDAO = new ResourceDAO(ConnectionBDPostgreSQL.getInstance());
+            resourceDAO.create(resource);
+               
+//            if(this.resource == null) {
+//                addActionMessage("Error connect database. Contact your administrator!");
+//                return ERROR;
+//            }
+            
+            addActionMessage("Successfully added!");
             return SUCCESS;
-        }else{
-            addActionError("Invalid Resource information. Resource can't be added "
-                    + "Please try again!");
-            this.setSuccessAdd(false);
+            
+        }
+        
+        else{
+            addActionError("Invalid Resource information. Resource can't be added Please try again!");
             return ERROR;
-         }
+        }
     }
 
 }

@@ -20,6 +20,7 @@
         
         <action name="addResource" class="com.mywebdevresources.actions.ResourceAction" method="register">
             <result name="success">jsp/administrator/crud.jsp</result>
+            <result name="error">jsp/administrator/crud.jsp</result>
         </action>
         
         
